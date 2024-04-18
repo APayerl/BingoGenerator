@@ -1,0 +1,24 @@
+.base {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    border-color: black;
+    border-style: solid;
+    box-sizing: border-box;
+
+    .item {
+        display: inline-flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        overflow-wrap: break-word;
+        
+        border-color: black;
+        border-style: solid;
+        box-sizing: border-box;
+    }
+}

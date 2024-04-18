@@ -1,0 +1,11 @@
+<div class="base" [ngStyle]="{ 'border-width.px': this.outerBorderWidth() }">
+    <div class="item" *ngFor="let item of this.content; let i = index" [ngStyle]="{ 
+        'width.%': 100/this.columns(),
+        'height.%': 100/this.rows(),
+        'border-top-width.px': i < this.columns() ? this.outerBorderWidth() : this.cellBorderWidth(),
+        'border-bottom-width.px': (i >= ((this.rows() - 1) * this.columns())) ? this.outerBorderWidth() : this.cellBorderWidth(),
+        'border-left-width.px': i % this.rows() === 0 ? this.outerBorderWidth() : this.cellBorderWidth(),
+        'border-right-width.px': ((i+1) % this.rows()) === 0 ? this.outerBorderWidth() : this.cellBorderWidth(),
+        'font-size.px': this.cellTextSize()
+        }">{{item}}</div>
+</div>
