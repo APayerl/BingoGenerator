@@ -1,10 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ColorChromeModule } from 'ngx-color/chrome';
+import { FormsModule } from '@angular/forms';
+import { FlexBoardComponent } from './flex-board/flex-board.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      declarations: [
+        AppComponent,
+        FlexBoardComponent
+      ],
+      imports: [
+        FormsModule,
+        ColorChromeModule
+      ]
     }).compileComponents();
   });
 
@@ -24,6 +34,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, bingo-generator');
+    expect(compiled.querySelector('h2')?.textContent).toContain('Settings');
   });
 });

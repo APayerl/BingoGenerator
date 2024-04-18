@@ -12,5 +12,5 @@ export class FlexBoardComponent<T> {
   @Input({ required: true }) outerBorderWidth!: Signal<number>;
   @Input({ required: true }) cellBorderWidth!: Signal<number>;
   @Input({ required: true }) cellTextSize!: Signal<number>;
-  @Input({ required: true }) content!: T[];
+  @Input({ required: true }) content!: Signal<T[]>;
 }

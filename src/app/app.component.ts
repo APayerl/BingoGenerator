@@ -24,7 +24,7 @@ export class AppComponent {
   rawRequiredString: WritableSignal<string> = signal("1\n2\n3\n4\n5");
   optionalElements: Signal<string[]> = computed(() => this.rawOptionalString().split(this.stringDelimiter().value));
   requiredElements: Signal<string[]> = computed(() => this.rawRequiredString().split(this.stringDelimiter().value));
-  elems: Signal<string[][]> = computed(() => Array.from({ length: this.numOfBoards() }, (_, i) => this.getContent()));
+  elems: Signal<Signal<string[]>[]> = computed(() => Array.from({ length: this.numOfBoards() }, (_, i) => signal(this.getContent())));
 
   delimiters = Delimiters;
   defaultDelimiter: Delimiter = this.delimiters.find(delimiter => delimiter.displayName === 'ENTER') || this.delimiters[0];

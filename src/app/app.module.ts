@@ -6,12 +6,10 @@ import { ColorChromeModule } from "ngx-color/chrome";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BoardComponent } from './board/board.component';
 import { FlexBoardComponent } from './flex-board/flex-board.component';
 @NgModule({
     declarations: [
         AppComponent,
-        BoardComponent,
         FlexBoardComponent
     ],
     imports: [
