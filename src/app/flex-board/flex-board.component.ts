@@ -1,8 +1,9 @@
-import { Component, Input, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Signal } from '@angular/core';
 
 @Component({
   selector: 'app-flex-board',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './flex-board.component.html',
   styleUrl: './flex-board.component.scss'
 })
