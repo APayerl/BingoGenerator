@@ -25,27 +25,36 @@ export class AppComponent {
   rawRequiredString: WritableSignal<string> = signal("");
   optionalElements: Signal<string[]> = computed(() => this.rawOptionalString().split(this.stringDelimiter().value));
   requiredElements: Signal<string[]> = computed(() => this.rawRequiredString().split(this.stringDelimiter().value));
-  elems: Signal<Signal<string[]>[]> = computed(() => Array.from({ length: this.numOfBoards() }, (_, i) => signal(this.getContent())));
+  elems: Signal<Signal<string[]>[]> = computed(() => Array.from({ length: this.numOfBoards() }, (_, i) => signal(
+    this.getContent(
+      this.rows(),
+      this.columns(),
+      this.requiredElements(),
+      this.optionalElements(),
+      this.doShuffle()
+    ))));
 
   delimiters = Delimiters;
   defaultDelimiter: Delimiter = this.delimiters.find(delimiter => delimiter.displayName === 'ENTER') || this.delimiters[0];
   console = console;
 
-  getContent(): string[] {
-    let reqItems = this.requiredElements();
-    if((this.rows() * this.columns()) <= this.requiredElements.length) {
-      if(this.doShuffle()) {
-        reqItems = shuffle(reqItems);
+  getContent(rows: number, columns: number, required: string[], optional: string[], doShuffle: boolean): string[] {
+    const cells = rows * columns;
+    if(cells <= required.length) {
+      if(doShuffle) {
+        required = shuffle(required);
       }
-      return reqItems.slice(0, this.rows() * this.columns());
+      return required.slice(0, cells);
     }
 
-    let optItems = this.optionalElements();
-    if(this.doShuffle()) {
-      optItems = shuffle(optItems);
+    if(doShuffle) {
+      optional = shuffle(optional);
     }
-    let finalList: string[] = optItems.slice(0, (this.rows() * this.columns()) - reqItems.length).concat(reqItems);
-    return this.doShuffle() ? shuffle(finalList) : finalList;
+    let finalList: string[] = optional.slice(0, cells - required.length).concat(required);
+    if((cells - finalList.length) > 0) {
+      finalList = finalList.concat(Array.from({ length: cells - finalList.length }, (_, i) => ""));
+    }
+    return doShuffle ? shuffle(finalList) : finalList;
   }
 
   title = 'bingo-generator';
