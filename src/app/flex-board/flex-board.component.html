@@ -3,7 +3,7 @@
         'width.%': 100/this.columns(),
         'height.%': 100/this.rows(),
         'border-top-width.px': i < this.columns() ? 0 : this.cellBorderWidth(),
-        'border-left-width.px': i % this.rows() === 0 ? 0 : this.cellBorderWidth(),
+        'border-left-width.px': i % this.columns() === 0 ? 0 : this.cellBorderWidth(),
         'font-size.px': this.cellTextSize()
         }">{{item}}</div>
 </div>
