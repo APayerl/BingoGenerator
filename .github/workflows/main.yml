@@ -21,6 +21,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - name: Node 12
@@ -36,7 +38,7 @@ jobs:
       - name: Install
         run: npm ci --prefer-offline
       - name: Build
-        run: npm run build -- --prod
+        run: npm run build --production
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
