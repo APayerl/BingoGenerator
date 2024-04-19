@@ -40,8 +40,8 @@ jobs:
       - name: Build
         run: npm run build --production
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.6.0
+        uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist/bingo-generator
+          FOLDER: docs/browser

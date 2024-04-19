@@ -1,5 +1,6 @@
 {
   "name": "bingo-generator",
+  "homepage": "https://apayerl.github.io/bingo-generator",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
