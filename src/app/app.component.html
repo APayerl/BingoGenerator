@@ -39,13 +39,13 @@
                     <input type="number" min="10" [ngModel]="cellTextSize()" (ngModelChange)="cellTextSize.set($event)" />
                 </div>
             </div>
-            <div class="others settings-section">
+            <!-- <div class="others settings-section">
                 <div>
                     <p>Border color:</p>
                     <div [style.backgroundColor]="cellBorderColor()" [style.height.px]="16" [style.width.px]="16"></div>
                     <color-chrome [ngModel]="cellBorderColor()" (ngModelChange)="cellBorderColor.set($event)"></color-chrome>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="board-section">
