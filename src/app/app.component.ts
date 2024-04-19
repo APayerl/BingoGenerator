@@ -1,4 +1,4 @@
-import { Component, Signal, WritableSignal, computed, signal, untracked, effect, OnInit } from '@angular/core';
+import { Component, Signal, WritableSignal, computed, signal, untracked, effect, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import shuffle from "lodash/shuffle";
 import { Delimiter, Delimiters } from './utils/delimiters';
@@ -6,6 +6,7 @@ import { Delimiter, Delimiters } from './utils/delimiters';
 @Component({
   selector: 'app-root',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
