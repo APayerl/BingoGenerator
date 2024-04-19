@@ -20,8 +20,8 @@ export class AppComponent {
   outerBorderWidth: WritableSignal<number> = signal(1);
   boardSize: WritableSignal<number> = signal(250);
   stringDelimiter: WritableSignal<Delimiter> = signal(Delimiters[0]);
-  rawOptionalString: WritableSignal<string> = signal("z\nx\nc\nv\nb\nn\nm\na\ns\nd\nf\ng\nh\nj\nk\nl\nö\nä\nq\nw\ne\nr\nt\ny\nu\ni\no\np\nå");
-  rawRequiredString: WritableSignal<string> = signal("1\n2\n3\n4\n5");
+  rawOptionalString: WritableSignal<string> = signal("");
+  rawRequiredString: WritableSignal<string> = signal("");
   optionalElements: Signal<string[]> = computed(() => this.rawOptionalString().split(this.stringDelimiter().value));
   requiredElements: Signal<string[]> = computed(() => this.rawRequiredString().split(this.stringDelimiter().value));
   elems: Signal<Signal<string[]>[]> = computed(() => Array.from({ length: this.numOfBoards() }, (_, i) => signal(this.getContent())));
