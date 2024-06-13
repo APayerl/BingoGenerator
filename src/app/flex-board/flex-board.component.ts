@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, Signal } from '@angular/core';
+import { BoardState } from '../utils/boardState';
 
 @Component({
   selector: 'app-flex-board',
@@ -8,10 +9,9 @@ import { ChangeDetectionStrategy, Component, Input, Signal } from '@angular/core
   styleUrl: './flex-board.component.scss'
 })
 export class FlexBoardComponent<T> {
-  @Input({ required: true }) rows!: Signal<number>;
-  @Input({ required: true }) columns!: Signal<number>;
-  @Input({ required: true }) outerBorderWidth!: Signal<number>;
-  @Input({ required: true }) cellBorderWidth!: Signal<number>;
-  @Input({ required: true }) cellTextSize!: Signal<number>;
-  @Input({ required: true }) content!: Signal<T[]>;
+  @Input({ required: true }) config!: BoardState<T>;
+
+  ngOnInit() {
+    console.log(this.config);
+  }
 }

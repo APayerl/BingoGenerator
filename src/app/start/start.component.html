@@ -1,0 +1,51 @@
+<div>
+    <div class="settings-area">
+        <h2>Settings</h2>
+        <div>
+            <div class="text-input settings-section">
+                <p>Requireds:</p>
+                <textarea [ngModel]="config().rawRequiredString" (ngModelChange)="updateState2(configKeys.RawRequiredString, $event)"></textarea>
+                <p>Optionals:</p>
+                <textarea [ngModel]="config().rawOptionalString" (ngModelChange)="updateState2(configKeys.RawOptionalString, $event)"></textarea>
+            </div>
+            <div class="rowColSelect settings-section">
+                <div>
+                    <p>Rows:</p>
+                    <p>Columns:</p>
+                    <p>Board size:</p>
+                    <p>Boards:</p>
+                    <p>Cell Border width:</p>
+                    <p>Outer Border width:</p>
+                    <p>Delimiter:</p>
+                    <p>Shuffle:</p>
+                    <p>Text size:</p>
+                </div>
+                <div>
+                    <input type="number" min="1" [ngModel]="config().rows" (ngModelChange)="updateState2(configKeys.Rows, $event)" />
+                    <input type="number" min="1" [ngModel]="config().columns" (ngModelChange)="updateState2(configKeys.Columns, $event)" />
+                    <input type="number" min="20" [ngModel]="config().boardSize" (ngModelChange)="updateState2(configKeys.BoardSize, $event)" />
+                    <input min="1" type="number" [ngModel]="config().numOfBoards" (ngModelChange)="updateState2(configKeys.NumOfBoards, $event)" />
+                    <input min="0" type="number" [ngModel]="config().cellBorderWidth" (ngModelChange)="updateState2(configKeys.CellBorderWidth, $event)" />
+                    <input min="0" type="number" [ngModel]="config().outerBorderWidth" (ngModelChange)="updateState2(configKeys.OuterBorderWidth, $event)" />
+                    <select [ngModel]="config().stringDelimiter" (ngModelChange)="updateState2(configKeys.StringDelimiter, $event)">
+                        <option *ngFor="let delimiter of delimiters" [ngValue]="delimiter" [defaultSelected]="this.defaultDelimiter" >
+                            <b>{{delimiter.displayName}}</b>
+                        </option>
+                    </select>
+                    <input type="checkbox" [ngModel]="config().doShuffle" (ngModelChange)="updateState2(configKeys.DoShuffle, $event)" />
+                    <input type="number" min="10" [ngModel]="config().cellTextSize" (ngModelChange)="updateState2(configKeys.CellTextSize, $event)" />
+                </div>
+            </div>
+            <!-- <div class="others settings-section">
+                <div>
+                    <p>Border color:</p>
+                    <div [style.backgroundColor]="cellBorderColor()" [style.height.px]="16" [style.width.px]="16"></div>
+                    <color-chrome [ngModel]="cellBorderColor()" (ngModelChange)="cellBorderColor.set($event)"></color-chrome>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="board-section">
+        <app-flex-board *ngFor="let board of boards(); let i = index" [ngStyle]="{ 'width.px': this.config().boardSize }" [config]="board" />
+    </div>
+</div>

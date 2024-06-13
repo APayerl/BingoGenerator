@@ -1,7 +1,7 @@
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
 <!-- <app-footer></app-footer> -->
 
-<div>
+<!-- <div>
     <div class="settings-area">
         <h2>Settings</h2>
         <div>
@@ -39,16 +39,16 @@
                     <input type="number" min="10" [ngModel]="cellTextSize()" (ngModelChange)="cellTextSize.set($event)" />
                 </div>
             </div>
-            <!-- <div class="others settings-section">
+            ---<div class="others settings-section">
                 <div>
                     <p>Border color:</p>
                     <div [style.backgroundColor]="cellBorderColor()" [style.height.px]="16" [style.width.px]="16"></div>
                     <color-chrome [ngModel]="cellBorderColor()" (ngModelChange)="cellBorderColor.set($event)"></color-chrome>
                 </div>
-            </div> -->
+            </div>---
         </div>
     </div>
     <div class="board-section">
         <app-flex-board *ngFor="let e of elems(); let i = index" [ngStyle]="{ 'width.px': this.boardSize() }" [cellTextSize]="this.cellTextSize" [outerBorderWidth]="this.outerBorderWidth" [cellBorderWidth]="this.cellBorderWidth" [rows]="this.rows" [columns]="this.columns" [content]="e" />
     </div>
-</div>
+</div> -->

@@ -1,0 +1,110 @@
+// * {
+//     display: inline-block;
+//     width: 400px;
+//     margin: 50px;
+// }
+
+div {
+    .settings-area {
+        display: block;
+        background-color: rgb(228, 227, 227);
+        padding: 7px 10px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        width: fit-content;
+
+        h2 {
+            margin: 3px 0px;
+        }
+
+        .settings-section {
+            margin: 3px;
+        }
+
+        .text-input {
+            display: inline-block;
+
+            p {
+                display: block;
+                margin: 0;
+            }
+
+            textarea {
+                display: block;
+            }
+        }
+        
+        .rowColSelect {
+            display: inline-block;
+            vertical-align: top;
+
+            div {
+                display: inline-block;
+                vertical-align: middle;
+
+                input {
+                    display: block;
+                    margin-left: 0;
+                    margin-top: 4px;
+                    margin-bottom: 4px;
+                }
+                p {
+                    display: block;
+                    margin: 0;
+                    margin-right: 8px;
+                    padding: 4px;
+                }
+            }
+        }
+
+        .others {
+            display: inline-block;
+
+            div {
+                display: block;
+                margin-bottom: 5px;
+
+                div {
+                    display: inline-block;
+                    cursor: pointer;
+                    margin: 0;
+                    position: relative;
+                }
+
+                color-chrome {
+                    position: absolute;
+                    display: none;
+                }
+
+                p { 
+                    display: inline;
+                    margin: 0;
+                    margin-right: 8px;
+                }
+    
+                input {
+                    display: inline-block;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    .board-section {
+        margin-bottom: 20px;
+
+        app-flex-board {
+            height: auto;
+            display: inline-block;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+    }
+}
+
+@media print {
+    div {
+        .settings-area {
+            display: none;
+        }
+    }
+}
