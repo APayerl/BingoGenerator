@@ -10,8 +10,4 @@ import { BoardState } from '../utils/boardState';
 })
 export class FlexBoardComponent<T> {
   @Input({ required: true }) config!: BoardState<T>;
-
-  ngOnInit() {
-    console.log(this.config);
-  }
 }

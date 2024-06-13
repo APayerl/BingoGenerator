@@ -3,6 +3,7 @@ import { StartComponent } from './start.component';
 import { ColorChromeModule } from 'ngx-color/chrome';
 import { FormsModule } from '@angular/forms';
 import { FlexBoardComponent } from '../flex-board/flex-board.component';
+import { provideRouter } from '@angular/router';
 
 describe('StartComponent', () => {
   beforeEach(async () => {
@@ -14,7 +15,8 @@ describe('StartComponent', () => {
       imports: [
         FormsModule,
         ColorChromeModule
-      ]
+      ],
+      providers: [provideRouter([])],
     }).compileComponents();
   });
 
