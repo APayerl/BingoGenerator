@@ -1,9 +1,9 @@
-<div class="base" [style.border-width.px]="this.outerBorderWidth()">
-    <div class="item" *ngFor="let item of this.content(); let i = index" [ngStyle]="{ 
-        'width.%': 100/this.columns(),
-        'height.%': 100/this.rows(),
-        'border-top-width.px': i < this.columns() ? 0 : this.cellBorderWidth(),
-        'border-left-width.px': i % this.columns() === 0 ? 0 : this.cellBorderWidth(),
-        'font-size.px': this.cellTextSize()
+<div class="base" [style.border-width.px]="this.config.outerBorderWidth">
+    <div class="item" *ngFor="let item of this.config.elements; let i = index" [ngStyle]="{ 
+        'width.%': 100/this.config.columns,
+        'height.%': 100/this.config.rows,
+        'border-top-width.px': i < this.config.columns ? 0 : this.config.cellBorderWidth,
+        'border-left-width.px': i % this.config.columns === 0 ? 0 : this.config.cellBorderWidth,
+        'font-size.px': this.config.cellTextSize
         }">{{item}}</div>
 </div>
